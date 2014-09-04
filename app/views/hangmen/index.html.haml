@@ -1,0 +1,24 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th
+      %th Board
+      %th Misses
+  %tbody
+    - @hangmen.each do |game|
+      %tr
+        %td
+          - if game.finished?
+            = link_to 'View', game, class: 'btn btn-default'
+          - else
+            = link_to 'Play', game, class: 'btn btn-primary'
+        %td= game.board
+        %td
+          = "#{game.misses}/#{game.max_misses}"
+          - if game.won?
+            %span.label.label-success Won
+          - elsif game.lost?
+            %span.label.label-danger Lost
+    %tr
+      %td{ colspan: 3 }
+        = link_to 'New Game', hangmen_path, method: :post, class: 'btn btn-success btn-large'
