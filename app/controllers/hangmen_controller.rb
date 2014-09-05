@@ -10,7 +10,7 @@ class HangmenController < ApplicationController
   end
 
   def create
-    hangman = current_user.hangmen.create! answer: WORD_LIST.sample
+    hangman = current_user.hangmen.create! answer: Hangman::WORD_LIST.sample
     redirect_to hangman
   end
 
