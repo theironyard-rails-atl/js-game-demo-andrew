@@ -15,6 +15,12 @@ describe Hangman do
       expect( @game.finished? ).to eq false
     end
 
+    it "knows which letters are available" do
+      @game.guess "b"
+      @game.guess "c"
+      expect( @game.available_letters ).to eq ('d'..'z').to_a
+    end
+
     it "can be won" do
       @game.guess "b"
       @game.guess "n"
