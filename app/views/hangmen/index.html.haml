@@ -1,3 +1,8 @@
+.btn-group.type-filter
+  %button.btn.btn-default Won
+  %button.btn.btn-default Lost
+  %button.btn.btn-default Playing
+
 %table.table.table-striped
   %thead
     %tr
@@ -22,3 +27,12 @@
     %tr
       %td{ colspan: 3 }
         = link_to 'New Game', hangmen_path, method: :post, class: 'btn btn-success btn-large'
+
+/ v is a HAML helper for inlining javascript
+:javascript
+  // a button inside a node with class type-filter
+  // button.btn-group would select a button with class btn-group
+  $('.type-filter button').click(function() {
+    alert("Clicked");
+  });
+
