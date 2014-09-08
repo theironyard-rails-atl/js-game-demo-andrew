@@ -10,4 +10,14 @@ module ApplicationHelper
       name
     end
   end
+
+  def row_status_class game
+    if game.won?
+      :won
+    elsif game.lost?
+      :lost
+    else
+      :playing
+    end
+  end
 end
