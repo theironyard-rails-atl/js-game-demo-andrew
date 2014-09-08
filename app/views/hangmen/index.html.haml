@@ -30,9 +30,21 @@
 
 / v is a HAML helper for inlining javascript
 :javascript
+  // All of this text is inserted _unprocessed_ into a script tag
+
   // a button inside a node with class type-filter
   // button.btn-group would select a button with class btn-group
   $('.type-filter button').click(function() {
-    alert("Clicked");
+    //alert("Clicked");
+    // this is the node that was clicked on
+
+    // show us what we clicked on
+    // console.log(this);
+    // console.log("button text is: ", this);
+    // console.log("button text is " + this);
+
+    // grab contents of node
+    console.log(this.innerHTML);   // raw javascript
+    console.log( $(this).text() ); // jQuery
   });
 
