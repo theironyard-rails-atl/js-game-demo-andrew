@@ -2,11 +2,13 @@
   %button.btn.btn-default Won
   %button.btn.btn-default Lost
   %button.btn.btn-default Playing
+  %button.btn.btn-default Mine
 
 %table.table.table-striped
   %thead
     %tr
       %th
+      %th Player
       %th Board
       %th Misses
   %tbody
@@ -17,6 +19,7 @@
             = link_to 'View', game, class: 'btn btn-default'
           - else
             = link_to 'Play', game, class: 'btn btn-primary'
+        %td= game.user.email
         %td= game.board
         %td
           = "#{game.misses}/#{game.max_misses}"
@@ -43,6 +46,8 @@
         $('tr.won').show();
       } else if (row_type === "Lost") {
         $('tr.lost').show();
+      } else if (row_type === "Mine"){
+        $('tr.mine').show();
       } else {
         $('tr.playing').show();
       }

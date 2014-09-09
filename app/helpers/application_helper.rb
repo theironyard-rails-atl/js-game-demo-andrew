@@ -16,6 +16,8 @@ module ApplicationHelper
       :won
     elsif game.lost?
       :lost
+    elsif game.user == current_user
+      "#{:mine} #{:playing}"
     else
       :playing
     end

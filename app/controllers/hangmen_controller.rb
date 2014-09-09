@@ -19,4 +19,13 @@ class HangmenController < ApplicationController
     hangman.guess params[:guess] unless hangman.finished?
     redirect_to hangman
   end
+
+  def challenge
+    @hangman = Hangman.new
+  end
+
+  def create_challenge
+    hangman = Hangman.create! ({ answer: params[:hangman][:answer], user_id: params[:hangman][:user_id] })
+    redirect_to hangman
+  end
 end

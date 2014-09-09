@@ -61,4 +61,5 @@ class Hangman < ActiveRecord::Base
   def lost?
     misses == max_misses
   end
+
 end

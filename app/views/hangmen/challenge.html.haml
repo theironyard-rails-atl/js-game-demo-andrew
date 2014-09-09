@@ -1,0 +1,6 @@
+= form_for @hangman, url: {action: :create_challenge} do |f|
+  =f.label "Challenge User"
+  =f.collection_select :user_id, User.all, :id, :email
+  =f.label "Answer"
+  =f.text_field :answer
+  =f.submit

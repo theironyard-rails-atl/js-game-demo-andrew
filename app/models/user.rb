@@ -5,4 +5,16 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :hangmen
+
+  def self.all_id
+    User.all.map do |user|
+      user.id
+    end
+  end
+
+  def self.all_email
+    User.all.map do |user|
+      user.email
+    end
+  end
 end
